@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.9'
+gem 'rails'
 
 gem 'acts-as-taggable-on', '~> 4.0.0'
 gem 'acts_as_votable', '~> 0.10.0'
@@ -93,3 +93,8 @@ group :development do
 end
 
 eval_gemfile './Gemfile_custom'
+
+
+#From the dockerfile
+gem 'puma'
+gem 'foreman'

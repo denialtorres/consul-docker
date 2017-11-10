@@ -1,26 +1,21 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: localhost
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  username:
-  password:
 
-development: &development
+development:
   <<: *default
   database: consul_development
-
-# The staging, preproduction and production dbs are only needed
-# for running rake assets:precompile locally before deploying
-staging:
-  <<: *development
-
-preproduction:
-  <<: *development
-
-production:
-  <<: *development
 
 test:
   <<: *default
   database: consul_test
+
+production:
+  <<: *default
+  database: consul_production
+  username: <%= ENV['PG_ENV_POSTGRES_USER'] %>
+  password: <%= ENV['PG_ENV_POSTGRES_PASSWORD'] %>
+  host:  <%= ENV['PG_PORT_5432_TCP_ADDR'] || "127.0.0.1" %>
