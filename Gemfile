@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 gem 'rails'
 
 gem 'acts-as-taggable-on', '~> 4.0.0'
@@ -92,9 +93,8 @@ group :development do
   gem 'web-console', '~> 3.3.0'
 end
 
-eval_gemfile './Gemfile_custom'
+#eval_gemfile './Gemfile_custom'
 
 
 #From the dockerfile
-gem 'puma'
 gem 'foreman'
